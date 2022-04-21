@@ -1,0 +1,40 @@
+<div class="main_container">
+  <h2>スケジュール編集</h2>
+  <%= render "shared/error", obj: @post %>
+    <%= form_with model: @post, local: true do |f| %>
+      <table>
+        <tr>
+          <th><%= f.label :title ,"タイトル" %></th>
+          <td><%= f.text_field :title %></td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :start ,"開始日" %></th>
+          <td><%= f.date_field :start_at %></td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :end ,"終了日" %></th>
+          <td><%= f.date_field :end_at %></td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :allday ,"終日" %></th>
+          <td><%= f.check_box :allday, :as => :boolean %>
+          <br>終日の場合はチェックを入れます</td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :memo ,"スケジュールメモ" %></th>
+          <td><%= f.text_area :memo %></td>
+        </tr>
+      </table>
+
+      <div>
+        <ul>
+          <li><%= f.submit "スケジュールの編集を完了する" %></li>
+          <li><%= link_to "スケジュール一覧に戻る", :posts %></li>
+        </ul>
+      </div>
+    <% end %> 
+ </div>
